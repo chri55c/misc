@@ -1,8 +1,0 @@
- imd$z_education_amt = scale(imd$education_amt)
-imd$z_living_environment_amt = scale(imd$living_environment_amt)
-imd$z_crime_amt = scale(imd$crime_amt)
-imd$z_housing_amt = scale(imd$housing_amt)
-imd$z_health_amt = scale(imd$health_amt)
-imd$z_employment_amt = scale(imd$employment_amt)
-imd$z_income_amt = scale(imd$income_amt)
-imd$z_imd_amt = scale(imd$imd_amt)
