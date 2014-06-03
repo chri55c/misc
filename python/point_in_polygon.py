@@ -22,7 +22,7 @@ def pip(poly_shps, point_shps):
             # print "point %d within bbox of poly %d" % (i, j)
             if points[i].within(polys[j]):
                 # print "point %d within poly %d" % (i, j)
-                match=j
+                match = j
                 break
         if (match is not None):
             matches.append((i, match))
@@ -37,7 +37,10 @@ if __name__ == "__main__":
     point_shps = shapefile.Reader(point_sf).shapes()
 
     matches = pip(poly_shps, point_shps)
-    with open('pip_out.csv', 'wb') as f:
-        writer = csv.writer(f)
-        f.writerows(matches)
-
+    if len(matches) == 0:
+        print "no intersections found"
+    else:
+        with open('pip_out.csv', 'wb') as f:
+            writer = csv.writer(f)
+            writer.writerows(matches)
+        print "%d intersections written to %s" % (len(matches), f.name)
